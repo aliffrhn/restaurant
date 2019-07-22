@@ -1,17 +1,13 @@
 import React, { Component } from 'react'
 import { View, Text } from 'react-native'
 import { createStackNavigator, createAppContainer } from 'react-navigation'
-import Home from './Home'
-import Home2 from './Home2'
+import Home from './Menu/Home/Home'
 
 const root = createStackNavigator(
   {
     Home : {
       screen : Home
     },
-    Home2 : {
-      screen : Home2
-    }
   },
   {
     initialRouteName : "Home"

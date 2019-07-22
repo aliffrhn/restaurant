@@ -10,6 +10,7 @@ export default class Home2 extends Component{
                 <Text>
                     Home2
                 </Text>
+                <Button title="Goto Home" onPress={()=> {this.props.navigation.navigate("Home")} }/>
             </View>
         )
     }

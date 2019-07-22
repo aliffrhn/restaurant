@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, StatusBar } from 'react-native'
 import Footers from '../Footers'
 
 import ImageSlider from 'react-native-image-slider'
@@ -25,6 +25,7 @@ export default class Home extends Component{
         
         return(
             <View style={{flex : 1}}>
+                <StatusBar backgroundColor = "#f2994a" />
                 <View style={{flex : 1}}>  
                     <ImageSlider images={this.state.image} />
                     <Text>

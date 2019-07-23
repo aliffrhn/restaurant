@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { View, Text, StatusBar, Image } from 'react-native'
 import Footers from '../Footers'
-import Ionicons from 'react-native-vector-icons/Ionicons'
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import ImageSlider from 'react-native-image-slider'
-import { Card, CardItem, Content, Left, Right } from 'native-base' 
+import { Content, Card, CardItem, Left, Right } from 'native-base'
 
 export default class Home extends Component{
 
@@ -41,7 +41,7 @@ export default class Home extends Component{
                             </Text>
                         </CardItem>
                         <CardItem>
-                            <Image style={{height : 200}} source={{uri : 'http://placeimg.com/640/480/any'}} />
+                            <Image style={{height : 200}} source={{uri : "http://placeimg.com/640/480/any"}} />
                         </CardItem>
                         <CardItem>
                             <Left>

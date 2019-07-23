@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import { View, Text, StatusBar, Image } from 'react-native'
+import { View, StatusBar, Image } from 'react-native'
 import Footers from '../Footers'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import ImageSlider from 'react-native-image-slider'
-import { Content, Card, CardItem, Left, Right } from 'native-base'
+import { Text, Content, Card, CardItem, Left, Right, Button } from 'native-base'
+import axios from 'axios'
 
 export default class Home extends Component{
 
@@ -14,8 +15,21 @@ export default class Home extends Component{
                 'http://placeimg.com/640/480/any',
                 'http://placeimg.com/640/480/any',
                 'http://placeimg.com/640/480/any'
-            ] 
+            ],
+            categories : [] 
         }
+    }
+
+    getCategory = () =>{
+        axios.get('https://developers.zomato.com/api/v2.1/categories', {headers: {'user-key' : '8585456090d478ea810a41f420f5dd5c'}})
+        .then(res => {
+            // console.log(res.data.categories)
+            this.setState({categories : res.data.categories})
+        })
+    }
+
+    componentDidMount(){
+        this.getCategory()
     }
 
     static navigationOptions = {
@@ -25,15 +39,22 @@ export default class Home extends Component{
     render(){
         
         return(
+            
             <View style={{flex : 1}}>
                 <StatusBar backgroundColor = "#f2994a" />
-                <View style={{flex : 1}}>  
+                <View style={{height : 200}}>  
                     <ImageSlider images={this.state.image} />
-                    <Text>
-                        Home
-                    </Text>
                 </View>
-                <Content>
+                <Content horizontal style={{marginTop:20}}>
+                    {this.state.categories.map((data,key)=>{
+                        return(
+                            <Button rounded key={key}>
+                                <Text>{data.categories.name}</Text>
+                            </Button>
+                        )
+                    })}
+                </Content>
+                {/* <Content>
                     <Card>
                         <CardItem>
                             <Text>
@@ -54,7 +75,7 @@ export default class Home extends Component{
                             </Right>
                         </CardItem>
                     </Card>
-                </Content>
+                </Content> */}
                 <Footers/>
             </View>
         )

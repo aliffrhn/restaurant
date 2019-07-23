@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { View, Text, StatusBar } from 'react-native'
+import { View, Text, StatusBar, Image } from 'react-native'
 import Footers from '../Footers'
-
+import Ionicons from 'react-native-vector-icons/Ionicons'
 import ImageSlider from 'react-native-image-slider'
+import { Card, CardItem, Content, Left, Right } from 'native-base' 
 
 export default class Home extends Component{
 
@@ -32,6 +33,28 @@ export default class Home extends Component{
                         Home
                     </Text>
                 </View>
+                <Content>
+                    <Card>
+                        <CardItem>
+                            <Text>
+                                Title
+                            </Text>
+                        </CardItem>
+                        <CardItem>
+                            <Image style={{height : 200}} source={{uri : 'http://placeimg.com/640/480/any'}} />
+                        </CardItem>
+                        <CardItem>
+                            <Left>
+                                <Ionicons name='md-star' size={30} color={'#f2994a'} />
+                            </Left>
+                            <Right>
+                                <Text>
+                                    Like
+                                </Text>
+                            </Right>
+                        </CardItem>
+                    </Card>
+                </Content>
                 <Footers/>
             </View>
         )

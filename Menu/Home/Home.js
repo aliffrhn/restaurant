@@ -45,16 +45,16 @@ export default class Home extends Component{
                 <View style={{height : 200}}>  
                     <ImageSlider images={this.state.image} />
                 </View>
-                <Content horizontal style={{marginTop:20}}>
-                    {this.state.categories.map((data,key)=>{
-                        return(
-                            <Button rounded key={key}>
-                                <Text>{data.categories.name}</Text>
-                            </Button>
-                        )
-                    })}
-                </Content>
-                {/* <Content>
+                <Content>
+                    <Content horizontal style={{marginTop:20}}>
+                        {this.state.categories.map((data,key)=>{
+                            return(
+                                <Button rounded key={key} style={{marginLeft : 10}}>
+                                    <Text>{data.categories.name}</Text>
+                                </Button>
+                            )
+                        })}
+                    </Content>
                     <Card>
                         <CardItem>
                             <Text>
@@ -62,7 +62,7 @@ export default class Home extends Component{
                             </Text>
                         </CardItem>
                         <CardItem>
-                            <Image style={{height : 200}} source={{uri : "http://placeimg.com/640/480/any"}} />
+                            <Image style={{height : 200, width : null, flex : 1}} source={{uri : "http://placeimg.com/640/480/any"}} />
                         </CardItem>
                         <CardItem>
                             <Left>
@@ -75,7 +75,7 @@ export default class Home extends Component{
                             </Right>
                         </CardItem>
                     </Card>
-                </Content> */}
+                </Content>
                 <Footers/>
             </View>
         )
